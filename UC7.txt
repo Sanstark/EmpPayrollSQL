@@ -1,0 +1,42 @@
+create database payroll_service; 
+show databases;
+use payroll_service;
+CREATE TABLE EmpPayRoll (
+    id INT unsigned NOT NULL auto_increment,
+    Name varchar(255) NOT NULL,
+	salary double NOT NULL,
+    start DATE NOT NULL,
+    primary key(id)
+    );
+INSERT INTO EmpPayRoll (Name, salary, start)
+VALUES ('Dhoni',1000000.0,'2018-02-01');    
+
+INSERT INTO EmpPayRoll (Name, salary, start)
+VALUES ('Sehwag',200000.0,'2018-03-21');
+
+INSERT INTO EmpPayRoll (Name, salary, start)
+VALUES ('Ganguly',800000.0,'2018-04-19');
+    
+Select * from EmpPayRoll;    
+
+Select salary from EmpPayRoll
+where name='Dhoni';    
+
+ALTER TABLE EmpPayRoll
+ADD Gender char(1) after Name;
+  
+update EmpPayRoll set Gender=
+'M' WHERE Name='Sehwag' or Name='Dhoni' or Name='Ganguly'; 
+ 
+Select * from EmpPayRoll; 
+
+SELECT SUM(salary)
+FROM EmpPayRoll
+where Gender='M'
+GROUP BY Gender;
+
+
+
+ 
+
+
